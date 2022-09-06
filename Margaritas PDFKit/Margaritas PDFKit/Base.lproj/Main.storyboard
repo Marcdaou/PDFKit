@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Margaritas_PDFKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9kb-U1-Vx3">
+                                <rect key="frame" x="107" y="431" width="200" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="ofW-uO-cCZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Query Cocktails 🍹" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C77-cP-BaK">
+                                <rect key="frame" x="67.5" y="364" width="279" height="43"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
+                                <color key="textColor" red="0.14509806040000001" green="0.13333332540000001" blue="0.3686274886" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3WN-Z3-oBi">
+                                <rect key="frame" x="137.5" y="793" width="139" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Generate PDF!">
+                                    <color key="titleColor" systemColor="tintColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="generatePDF:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lP8-zB-EJU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9kb-U1-Vx3" firstAttribute="top" secondItem="C77-cP-BaK" secondAttribute="bottom" constant="24" id="Lwc-lE-Zyx"/>
+                            <constraint firstItem="3WN-Z3-oBi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZZu-a7-RN2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3WN-Z3-oBi" secondAttribute="bottom" constant="30" id="a5g-ky-scU"/>
+                            <constraint firstItem="9kb-U1-Vx3" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="eis-Xd-lHk"/>
+                            <constraint firstItem="C77-cP-BaK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kDP-ZE-rsc"/>
+                            <constraint firstItem="9kb-U1-Vx3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kOF-s2-8et"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="queryField" destination="9kb-U1-Vx3" id="1wO-dW-qqy"/>
+                        <segue destination="iCf-Lg-ASa" kind="presentation" identifier="toPDFPreview" id="4hV-Un-Ll2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="18.840579710144929" y="90.401785714285708"/>
+        </scene>
+        <!--Pdf PreviewVC-->
+        <scene sceneID="zml-7N-D4o">
+            <objects>
+                <viewController id="iCf-Lg-ASa" customClass="PdfPreviewVC" customModule="Margaritas_PDFKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Klb-3l-7BW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pfa-JE-zRi">
+                                <rect key="frame" x="0.0" y="798" width="414" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="action" id="qZ7-j2-8GG">
+                                        <connections>
+                                            <action selector="share:" destination="iCf-Lg-ASa" id="cUz-bn-ZIm"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MPf-fx-EnR" customClass="PDFView">
+                                <rect key="frame" x="0.0" y="44" width="414" height="754"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ptb-bo-PDt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ptb-bo-PDt" firstAttribute="bottom" secondItem="pfa-JE-zRi" secondAttribute="bottom" id="Yei-cr-n6T"/>
+                            <constraint firstItem="MPf-fx-EnR" firstAttribute="top" secondItem="ptb-bo-PDt" secondAttribute="top" id="cD6-zV-ehS"/>
+                            <constraint firstItem="pfa-JE-zRi" firstAttribute="top" secondItem="MPf-fx-EnR" secondAttribute="bottom" id="gIZ-hn-2Ik"/>
+                            <constraint firstItem="MPf-fx-EnR" firstAttribute="leading" secondItem="ptb-bo-PDt" secondAttribute="leading" id="ok5-ga-VMr"/>
+                            <constraint firstItem="ptb-bo-PDt" firstAttribute="trailing" secondItem="MPf-fx-EnR" secondAttribute="trailing" id="rpk-MY-0Qg"/>
+                            <constraint firstItem="pfa-JE-zRi" firstAttribute="leading" secondItem="ptb-bo-PDt" secondAttribute="leading" id="x6a-yK-Yvo"/>
+                            <constraint firstItem="pfa-JE-zRi" firstAttribute="trailing" secondItem="ptb-bo-PDt" secondAttribute="trailing" id="yUD-jS-c5B"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pdfView" destination="MPf-fx-EnR" id="qCd-uA-2FQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RB6-l9-n1M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1043" y="90"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
