@@ -18,6 +18,7 @@ You will learn:
 - Move on to a new page when needed
 - Share your PDF
 
+You can find the tutorial here: https://medium.com/@marc7182/swift-generating-pdfs-dynamically-using-pdfkit-12c37168e106 
 
 
 ![simulator_screenshot_3C98CD19-17CF-47ED-89A1-37DA410E93DE](https://user-images.githubusercontent.com/18750232/188559701-848f92c8-310b-49b8-9bd2-718c2c53371b.png)
